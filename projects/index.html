@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Aether Gallery</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070816;
+      --panel: rgba(15, 18, 36, 0.78);
+      --panel-border: rgba(255, 255, 255, 0.12);
+      --text: #f3f6ff;
+      --muted: rgba(243, 246, 255, 0.7);
+      --accent: #61f3ff;
+      --accent-2: #b8ff6a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(97, 243, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(184, 255, 106, 0.12), transparent 28%),
+        linear-gradient(135deg, #04050c 0%, #091126 55%, #04050c 100%);
+      overflow-x: hidden;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 20px 60px;
+    }
+    .hero {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid var(--panel-border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5.25rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .lede {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .card {
+      grid-column: span 6;
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid var(--panel-border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(97, 243, 255, 0.45);
+      background: linear-gradient(180deg, rgba(97,243,255,0.13), rgba(255,255,255,0.05));
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: var(--text);
+      font-size: 12px;
+    }
+    .footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (max-width: 760px) {
+      .card { grid-column: span 12; }
+      .wrap { padding-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span> Single-file HTML projects</div>
+      <h1>Project Aether</h1>
+      <p class="lede">A small gallery of webcam-driven and generative visual experiments. Each project is self-contained, so you can open it directly in the browser or publish it as a static page on GitHub Pages.</p>
+    </section>
+
+    <section class="grid" aria-label="Projects">
+      <a class="card" href="./burst/">
+        <div>
+          <h2>Burst</h2>
+          <p>Interactive hand-tracking particles with open-hand constellations and fist-driven motion.</p>
+        </div>
+        <div class="meta">
+          <span class="tag">MediaPipe</span>
+          <span class="tag">Canvas</span>
+          <span class="tag">Webcam</span>
+        </div>
+      </a>
+
+      <a class="card" href="./hidden-image/">
+        <div>
+          <h2>Hidden Image</h2>
+          <p>A liquid reveal effect that refracts a hidden image behind fluid motion.</p>
+        </div>
+        <div class="meta">
+          <span class="tag">Three.js</span>
+          <span class="tag">Shader</span>
+          <span class="tag">Webcam</span>
+        </div>
+      </a>
+
+      <a class="card" href="./liquid/">
+        <div>
+          <h2>Liquid</h2>
+          <p>Fluid simulation and mirror-like motion effects with camera input and ping-pong buffers.</p>
+        </div>
+        <div class="meta">
+          <span class="tag">Three.js</span>
+          <span class="tag">Simulation</span>
+          <span class="tag">Static</span>
+        </div>
+      </a>
+
+      <a class="card" href="./tear/">
+        <div>
+          <h2>Tear</h2>
+          <p>Holographic celestial portal with two-hand gesture control and bloom-lit geometry.</p>
+        </div>
+        <div class="meta">
+          <span class="tag">Three.js</span>
+          <span class="tag">Bloom</span>
+          <span class="tag">Hands</span>
+        </div>
+      </a>
+    </section>
+
+    <div class="footer">Tip: if GitHub Pages is enabled for this repo, the gallery is available at <code>/projects/</code>.</div>
+  </main>
+</body>
+</html>
